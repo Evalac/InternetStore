@@ -9,6 +9,7 @@ console.log(simpleLightbox);
 
 const galleryEl = document.querySelector('.gallery');
 const markup = onCreateMarkup(galleryItems);
+galleryEl.addEventListener('click', onLinkClickEl);
 
 galleryEl.insertAdjacentHTML('beforeend', markup);
 
@@ -28,4 +29,14 @@ function onCreateMarkup(galleryItems) {
             </li>`;
     })
     .join('');
+}
+
+function onLinkClickEl(evt) {
+  evt.preventDefault();
+  const isLinkImg = evt.target.dataset.source;
+  const isImg = evt.target.nodeName;
+  if (isImg !== 'IMG') {
+    return;
+  }
+  console.log('img');
 }
