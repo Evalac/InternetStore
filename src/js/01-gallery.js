@@ -26,13 +26,13 @@ function onCreateMarkup(galleryItems) {
 }
 
 function onOpenModal(evt) {
-  evt.preventDefault();
+  // evt.preventDefault();
   const isLinkImg = evt.target.dataset.source;
   const isImg = evt.target.nodeName;
   if (isImg !== 'IMG') {
     return;
   }
-  const lightbox = new SimpleLightbox('.gallery a', {
+  const lightbox = new simpleLightbox('.gallery a', {
     animationSpeed: 250,
     caption: true,
   });
