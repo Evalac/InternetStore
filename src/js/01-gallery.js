@@ -9,34 +9,31 @@ console.log(simpleLightbox);
 
 const galleryEl = document.querySelector('.gallery');
 const markup = onCreateMarkup(galleryItems);
-galleryEl.addEventListener('click', onLinkClickEl);
+galleryEl.addEventListener('click', onOpenModal);
 
 galleryEl.insertAdjacentHTML('beforeend', markup);
 
 function onCreateMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<li class="gallery__item">
-                <a class="gallery__link" href="large-image.jpg">
-                    <img
-                        class=" "
-                        src="${preview}"
-                        data-source="${original}"
-                        alt="${description}"
-            
-                    />
-                </a>
-            </li>`;
+      return ` <li class="gallery__item">
+        <a class="gallery__link" href="${original}">
+        <img class="gallery__image" src="${preview}" alt="${description}" />
+        </a>
+    </li>`;
     })
     .join('');
 }
 
-function onLinkClickEl(evt) {
+function onOpenModal(evt) {
   evt.preventDefault();
   const isLinkImg = evt.target.dataset.source;
   const isImg = evt.target.nodeName;
   if (isImg !== 'IMG') {
     return;
   }
-  console.log('img');
+  const lightbox = new SimpleLightbox('.gallery a', {
+    animationSpeed: 250,
+    caption: true,
+  });
 }
