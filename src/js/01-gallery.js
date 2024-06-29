@@ -3,10 +3,13 @@ import simpleLightbox from 'simplelightbox';
 import { galleryItems } from './gallery-items';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // Change code below this line
+
+// теорія імпорту та експорту
 import { sum } from './gallery-items'; // через кому можемо додавати ще функіціїї
 import { multiplication as multi } from './gallery-items'; // as для того щоб змінити назву змінною
+import * as data from './gallery-items'; // можна імпортувати одразу все і воно витягне тобі обект з усіма данними
+console.log(data);
 console.log(multi(3, 3));
-
 console.log(sum(2, 2)); // це виклик фучерез іменнований імпорт
 
 // console.log(galleryItems);
