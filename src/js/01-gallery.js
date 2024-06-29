@@ -3,6 +3,8 @@ import simpleLightbox from 'simplelightbox';
 import { galleryItems } from './gallery-items';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // Change code below this line
+import { sum } from './gallery-items';
+console.log(sum(2, 2));
 
 console.log(galleryItems);
 console.log(simpleLightbox);
