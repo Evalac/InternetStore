@@ -94,3 +94,10 @@ console.log(JSON.parse(localStorage.getItem('Object')));
 
 const localBtn = document.querySelector('.js-local');
 const sessionBtn = document.querySelector('.js-session');
+localBtn.addEventListener('click', () => {
+  localStorage.setItem('local', 'Storage');
+});
+
+sessionBtn.addEventListener('click', () => {
+  sessionStorage.setItem('session', 'Storage');
+});
