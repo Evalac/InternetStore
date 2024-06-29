@@ -4,8 +4,8 @@
   "description": "",
   "homepage": "https://Evalac.github.io/Home_WORK_8",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/*.html --public-url /Home_WORK_8/"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url/Home_WORK_8/"
   },
   "repository": {
     "type": "git",

@@ -4,10 +4,10 @@ import { galleryItems } from './gallery-items';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // Change code below this line
 import { sum } from './gallery-items';
-console.log(sum(2, 2));
+console.log(sum(2, 2)); // це виклик фучерез іменнований імпорт
 
-console.log(galleryItems);
-console.log(simpleLightbox);
+// console.log(galleryItems);
+// console.log(simpleLightbox);
 
 const galleryEl = document.querySelector('.gallery');
 const markup = onCreateMarkup(galleryItems);
@@ -28,7 +28,7 @@ function onCreateMarkup(galleryItems) {
 }
 
 function onOpenModal(evt) {
-  evt.preventDefault();
+  // evt.preventDefault();
 
   const isLinkImg = evt.target.dataset.source;
   const isImg = evt.target.nodeName;
