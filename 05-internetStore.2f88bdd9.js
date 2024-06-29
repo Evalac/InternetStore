@@ -1,2 +1,0 @@
-localStorage.setItem("TEST_KEY","Hello world"),localStorage.setItem("Array",JSON.stringify([1,2,3,4,5])),localStorage.setItem("Object",JSON.stringify({name:"mango"})),localStorage.removeItem("TEST_KEY"),console.log(localStorage.getItem("TEST_KEY")),console.log(JSON.parse(localStorage.getItem("Array"))),console.log(JSON.parse(localStorage.getItem("Object")));document.querySelector(".js-local"),document.querySelector(".js-session");
-//# sourceMappingURL=05-internetStore.2f88bdd9.js.map
