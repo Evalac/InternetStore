@@ -28,7 +28,7 @@ function onCreateMarkup(galleryItems) {
 }
 
 function onOpenModal(evt) {
-  // evt.preventDefault();
+  evt.preventDefault();
 
   const isLinkImg = evt.target.dataset.source;
   const isImg = evt.target.nodeName;
