@@ -1,27 +1,27 @@
-{
-  // setItem - add value
-  // getItem - get value
-  // removeItem - delete item
-  // clear - delete all
-  localStorage.setItem('TEST_KEY', 'Hello world');
-  localStorage.setItem('Array', JSON.stringify([1, 2, 3, 4, 5])); // тільки таким чином можна додати масив в локальне сховище щоб його потім можна було витягнути  JSON.stringify()
-  localStorage.setItem('Object', JSON.stringify({ name: 'mango' }));
-  // localStorage.removeItem('TEST_KEY');
+// {
+//   // setItem - add value
+//   // getItem - get value
+//   // removeItem - delete item
+//   // clear - delete all
+//   localStorage.setItem('TEST_KEY', 'Hello world');
+//   localStorage.setItem('Array', JSON.stringify([1, 2, 3, 4, 5])); // тільки таким чином можна додати масив в локальне сховище щоб його потім можна було витягнути  JSON.stringify()
+//   localStorage.setItem('Object', JSON.stringify({ name: 'mango' }));
+//   // localStorage.removeItem('TEST_KEY');
 
-  console.log(localStorage.getItem('TEST_KEY'));
-  console.log(JSON.parse(localStorage.getItem('Array')));
-  console.log(JSON.parse(localStorage.getItem('Object')));
+//   console.log(localStorage.getItem('TEST_KEY'));
+//   console.log(JSON.parse(localStorage.getItem('Array')));
+//   console.log(JSON.parse(localStorage.getItem('Object')));
 
-  const localBtn = document.querySelector('.js-local');
-  const sessionBtn = document.querySelector('.js-session');
-  localBtn.addEventListener('click', () => {
-    localStorage.setItem('local', 'Storage');
-  });
+//   const localBtn = document.querySelector('.js-local');
+//   const sessionBtn = document.querySelector('.js-session');
+//   localBtn.addEventListener('click', () => {
+//     localStorage.setItem('local', 'Storage');
+//   });
 
-  sessionBtn.addEventListener('click', () => {
-    sessionStorage.setItem('session', 'Storage');
-  });
-}
+//   sessionBtn.addEventListener('click', () => {
+//     sessionStorage.setItem('session', 'Storage');
+//   });
+// }
 
 const instruments = [
   {
@@ -116,17 +116,22 @@ const instruments = [
 const search = document.querySelector('.js-search');
 const markupInstrument = createMarkup(instruments);
 
+const cartEl = document.querySelector('.js-list');
+cartEl.innerHTML = markupInstrument;
+
 function createMarkup(instruments) {
   return instruments
     .map(({ id, img, name, price, description }) => {
-      return `<ul class="cart" id="${id}">
-      <li class="cart--Iteam">
-        <img src="${img}" alt="${name}" />
+      return `<li class="cart--Iteam" data-id="${id}">
+        <img src="${img}" alt="${name}" width="300px" />
         <h1 class="item--Name">${name}</h1>
         <p class="item--Info">${price}</p>
         <p class="item--Info">${description}</p>
-      </li>
-    </ul>`;
+        <div>
+        <button>Add to favorite</button>
+        <button>Add to basket</button>
+        </div>
+      </li>`;
     })
     .join('');
 }
