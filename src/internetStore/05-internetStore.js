@@ -103,3 +103,30 @@ const instruments = [
       'Електрична шліфувальна машина для обробки деревини та металу.',
   },
 ];
+
+// {
+//   id: 1,
+//   img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_316727.jpg',
+//   name: 'Молоток',
+//   price: 10.99,
+//   description:
+//     "Міцний сталевий молоток з дерев'яною ручкою, підходить для загального використання.",
+// },
+
+const search = document.querySelector('.js-search');
+const markupInstrument = createMarkup(instruments);
+
+function createMarkup(instruments) {
+  return instruments
+    .map(({ id, img, name, price, description }) => {
+      return `<ul class="cart" id="${id}">
+      <li class="cart--Iteam">
+        <img src="${img}" alt="${name}" />
+        <h1 class="item--Name">${name}</h1>
+        <p class="item--Info">${price}</p>
+        <p class="item--Info">${description}</p>
+      </li>
+    </ul>`;
+    })
+    .join('');
+}
