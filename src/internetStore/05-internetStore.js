@@ -125,8 +125,7 @@ function createMarkup(instruments) {
       return `<li class="cart--Iteam" data-id="${id}">
         <img src="${img}" alt="${name}" width="300px" />
         <h1 class="item--Name">${name}</h1>
-        <p class="item--Info">${price}</p>
-        <p class="item--Info">${description}</p>
+        <p ><a class="js-info" href="#">More information</a></p>
         <div>
         <button>Add to favorite</button>
         <button>Add to basket</button>
@@ -134,4 +133,13 @@ function createMarkup(instruments) {
       </li>`;
     })
     .join('');
+}
+cartEl.addEventListener('click', onclick);
+
+function onclick(evt) {
+  evt.preventDefault();
+  if (evt.target.classList.contains('js-info')) {
+    const { id } = evt.target.closest('.cart--Iteam').dataset; // вызьми з нашого елемента по якому ми клікнули першого батька з классом '.cart--Iteam' і з його властивусті дай дата атребут
+    console.log(id);
+  }
 }
