@@ -1,3 +1,5 @@
+import * as basicLightbox from 'basiclightbox';
+import 'src/styles/main';
 // {
 //   // setItem - add value
 //   // getItem - get value
@@ -139,7 +141,12 @@ cartEl.addEventListener('click', onclick);
 function onclick(evt) {
   evt.preventDefault();
   if (evt.target.classList.contains('js-info')) {
-    const { id } = evt.target.closest('.cart--Iteam').dataset; // вызьми з нашого елемента по якому ми клікнули першого батька з классом '.cart--Iteam' і з його властивусті дай дата атребут
-    console.log(id);
+    const { id } = evt.target.closest('.cart--Iteam').dataset; // візьми з нашого елемента по якому ми клікнули першого батька з классом '.cart--Iteam' і з його властивусті дай дата атребут
+    const product = findProduct(Number(id));
+    console.log(product);
   }
+}
+
+function findProduct(productId) {
+  return instruments.find(({ id }) => id === productId);
 }
