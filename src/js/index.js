@@ -137,7 +137,7 @@ function onclick(evt) {
     const product = findProduct(Number(id));
     console.log(product);
 
-    onOpenModal();
+    onOpenModal(product);
   }
 }
 
@@ -145,8 +145,14 @@ function findProduct(productId) {
   return instruments.find(({ id }) => id === productId);
 }
 
-function onOpenModal() {
-  const instance = basicLightbox.create(`
+function onOpenModal(product) {
+  const instance = basicLightbox.create(`  <div>
+      <img src="${product.img}" alt="${product.name}" width="150px" />
+      <h2>${product.name}</h2>
+      <h3>${product.price}</h3>
+      <p>${product.description}</p>
+      <div><button>Add to Favorite</button><button>Add to Basket</button></div>
+    </div>
 `);
   instance.show();
   console.log('повинна відкритись модалка');
