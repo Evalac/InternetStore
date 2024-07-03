@@ -155,6 +155,7 @@ function findProduct(productId) {
 }
 
 function onOpenModal() {
+  console.log('повинна відкритись модалка');
   const instance = basicLightbox.create(`
 `);
 }
