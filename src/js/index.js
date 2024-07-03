@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-import 'src/styles/main';
+// import 'src/styles/main';
 console.log(basicLightbox);
 // {
 //   // setItem - add value
