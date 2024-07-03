@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-// import 'src/styles/main';
+import 'basiclightbox/dist/basicLightbox.min.css';
 console.log(basicLightbox);
 // {
 //   // setItem - add value
@@ -107,15 +107,6 @@ const instruments = [
   },
 ];
 
-// {
-//   id: 1,
-//   img: 'https://static.dnipro-m.ua/cache/products/1754/catalog_origin_316727.jpg',
-//   name: 'Молоток',
-//   price: 10.99,
-//   description:
-//     "Міцний сталевий молоток з дерев'яною ручкою, підходить для загального використання.",
-// },
-
 const search = document.querySelector('.js-search');
 const markupInstrument = createMarkup(instruments);
 
@@ -155,7 +146,8 @@ function findProduct(productId) {
 }
 
 function onOpenModal() {
-  console.log('повинна відкритись модалка');
   const instance = basicLightbox.create(`
 `);
+  instance.show();
+  console.log('повинна відкритись модалка');
 }
