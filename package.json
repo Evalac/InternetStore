@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Evalac.github.io/Home_WORK_8",
+  "homepage": "https://goitacademy.github.io/parcel-project-template",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Home_WORK_8/"
+    "build": "parcel build src/*.html --public-url /parcel-project-template/"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "basiclightbox": "^5.0.4",
-    "modern-normalize": "^1.1.0",
-    "simplelightbox": "^2.14.3"
+    "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
