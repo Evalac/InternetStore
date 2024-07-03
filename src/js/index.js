@@ -146,7 +146,7 @@ function findProduct(productId) {
 }
 
 function onOpenModal(product) {
-  const instance = basicLightbox.create(`  <div>
+  const instance = basicLightbox.create(`  <div class="modal">
       <img src="${product.img}" alt="${product.name}" width="150px" />
       <h2>${product.name}</h2>
       <h3>${product.price}</h3>
