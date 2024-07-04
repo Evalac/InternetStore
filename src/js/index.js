@@ -146,14 +146,16 @@ function findProduct(productId) {
 }
 
 function onOpenModal(product) {
-  const instance = basicLightbox.create(`  <div class="modal">
+  const instance = basicLightbox.create(
+    `  <div class="modal">
       <img src="${product.img}" alt="${product.name}" width="150px" />
       <h2>${product.name}</h2>
-      <h3>${product.price}</h3>
+      <h3>${product.price}$</h3>
       <p>${product.description}</p>
       <div><button>Add to Favorite</button><button>Add to Basket</button></div>
     </div>
-`);
+`
+  );
   instance.show();
   console.log('повинна відкритись модалка');
 }
