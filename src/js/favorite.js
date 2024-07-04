@@ -1,6 +1,6 @@
 import { common } from './common';
 const listEl = document.querySelector('.js-favorite');
-const favorite = JSON.parse(localStorage.getItem(common.KEY_FAVORITE));
+const favorite = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
 console.log(favorite);
 
 const markup = onCreateMarkup(favorite);
