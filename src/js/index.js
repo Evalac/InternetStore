@@ -121,8 +121,8 @@ function createMarkup(instruments) {
         <h1 class="item--Name">${name}</h1>
         <p ><a class="js-info" href="#">More information</a></p>
         <div>
-        <button>Add to favorite</button>
-        <button>Add to basket</button>
+        <button class="js-favorite>Add to favorite</button>
+        <button class="js-basket">Add to basket</button>
         </div>
       </li>`;
     })
@@ -152,7 +152,7 @@ function onOpenModal(product) {
       <h2>${product.name}</h2>
       <h3>${product.price}$</h3>
       <p>${product.description}</p>
-      <div><button>Add to Favorite</button><button>Add to Basket</button></div>
+      <div><button class="js-favorite">Add to Favorite</button><button class="js-basket">Add to Basket</button></div>
     </div>
 `
   );
