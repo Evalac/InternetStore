@@ -1,6 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-console.log(basicLightbox);
+
 // {
 //   // setItem - add value
 //   // getItem - get value
@@ -106,9 +106,12 @@ const instruments = [
       'Електрична шліфувальна машина для обробки деревини та металу.',
   },
 ];
-
+const KEY_FAVORITE = 'favorite';
+const KEY_BASKET = 'basket';
 const search = document.querySelector('.js-search');
 const markupInstrument = createMarkup(instruments);
+const favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+const basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 
 const cartEl = document.querySelector('.js-list');
 cartEl.innerHTML = markupInstrument;
@@ -128,6 +131,7 @@ function createMarkup(instruments) {
     })
     .join('');
 }
+
 cartEl.addEventListener('click', onclick);
 
 function onclick(evt) {
@@ -142,12 +146,26 @@ function onclick(evt) {
   if (evt.target.classList.contains('js-basket')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
     const product = findProduct(Number(id));
-    console.log(product);
+
+    const inStorage = basketArr.some(({ id }) => id === product.id);
+    if (inStorage) {
+      return;
+    }
+
+    basketArr.push(product);
+    localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr));
   }
   if (evt.target.classList.contains('js-favorite')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
     const product = findProduct(Number(id));
-    console.log(product);
+
+    const inStorage = favoriteArr.some(({ id }) => id === product.id);
+    if (inStorage) {
+      return;
+    }
+
+    favoriteArr.push(product);
+    localStorage.setItem(KEY_FAVORITE, JSON.stringify(favoriteArr));
   }
 }
 
