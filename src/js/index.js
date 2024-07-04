@@ -121,7 +121,7 @@ function createMarkup(instruments) {
         <h1 class="item--Name">${name}</h1>
         <p ><a class="js-info" href="#">More information</a></p>
         <div>
-        <button class="js-favorite>Add to favorite</button>
+        <button class="js-favorite">Add to favorite </button>
         <button class="js-basket">Add to basket</button>
         </div>
       </li>`;
@@ -133,11 +133,21 @@ cartEl.addEventListener('click', onclick);
 function onclick(evt) {
   evt.preventDefault();
   if (evt.target.classList.contains('js-info')) {
-    const { id } = evt.target.closest('.cart--Iteam').dataset; // візьми з нашого елемента по якому ми клікнули першого батька з классом '.cart--Iteam' і з його властивусті дай дата атребут
+    const id = evt.target.closest('.cart--Iteam').dataset.id; // візьми з нашого елемента по якому ми клікнули першого батька з классом '.cart--Iteam' і з його властивусті дай дата атребут
     const product = findProduct(Number(id));
     console.log(product);
 
     onOpenModal(product);
+  }
+  if (evt.target.classList.contains('js-basket')) {
+    const id = evt.target.closest('.cart--Iteam').dataset.id;
+    const product = findProduct(Number(id));
+    console.log(product);
+  }
+  if (evt.target.classList.contains('js-favorite')) {
+    const id = evt.target.closest('.cart--Iteam').dataset.id;
+    const product = findProduct(Number(id));
+    console.log(product);
   }
 }
 
