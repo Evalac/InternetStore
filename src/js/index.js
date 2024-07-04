@@ -1,5 +1,12 @@
+//Завдання
+// Доробити корзину щоб була кількість і додавалсь в коризину кількість а не дубювались обекти
+// Офрмити нормально стилями
+// зpзробити щоб працював gitPages
+
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+
+import { common } from './common';
 
 // {
 //   // setItem - add value
@@ -106,12 +113,11 @@ const instruments = [
       'Електрична шліфувальна машина для обробки деревини та металу.',
   },
 ];
-const KEY_FAVORITE = 'favorite';
-const KEY_BASKET = 'basket';
+
 const search = document.querySelector('.js-search');
 const markupInstrument = createMarkup(instruments);
-const favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
-const basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
+const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
+const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 
 const cartEl = document.querySelector('.js-list');
 cartEl.innerHTML = markupInstrument;
@@ -153,7 +159,7 @@ function onclick(evt) {
     }
 
     basketArr.push(product);
-    localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr));
+    localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
   }
   if (evt.target.classList.contains('js-favorite')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
@@ -165,7 +171,7 @@ function onclick(evt) {
     }
 
     favoriteArr.push(product);
-    localStorage.setItem(KEY_FAVORITE, JSON.stringify(favoriteArr));
+    localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favoriteArr));
   }
 }
 
