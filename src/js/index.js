@@ -10,40 +10,15 @@ import { instruments } from './helpers/instruments';
 import { common } from './common';
 import { createMarkup } from './helpers/createMarkup';
 
-// {
-//   // setItem - add value
-//   // getItem - get value
-//   // removeItem - delete item
-//   // clear - delete all
-//   localStorage.setItem('TEST_KEY', 'Hello world');
-//   localStorage.setItem('Array', JSON.stringify([1, 2, 3, 4, 5])); // тільки таким чином можна додати масив в локальне сховище щоб його потім можна було витягнути  JSON.stringify()
-//   localStorage.setItem('Object', JSON.stringify({ name: 'mango' }));
-//   // localStorage.removeItem('TEST_KEY');
+const searchEl = document.querySelector('.js-search');
+const cartEl = document.querySelector('.js-list');
+cartEl.addEventListener('click', onclick);
 
-//   console.log(localStorage.getItem('TEST_KEY'));
-//   console.log(JSON.parse(localStorage.getItem('Array')));
-//   console.log(JSON.parse(localStorage.getItem('Object')));
-
-//   const localBtn = document.querySelector('.js-local');
-//   const sessionBtn = document.querySelector('.js-session');
-//   localBtn.addEventListener('click', () => {
-//     localStorage.setItem('local', 'Storage');
-//   });
-
-//   sessionBtn.addEventListener('click', () => {
-//     sessionStorage.setItem('session', 'Storage');
-//   });
-// }
-
-const search = document.querySelector('.js-search');
-const markupInstrument = createMarkup(instruments);
 const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? []; // оператор нульового поеднання для того щоб після перезавантаження сторінки не пропадали данні з локального сховища при додаванні нового обекту
 const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 
-const cartEl = document.querySelector('.js-list');
+const markupInstrument = createMarkup(instruments);
 cartEl.innerHTML = markupInstrument;
-
-cartEl.addEventListener('click', onclick);
 
 function onclick(evt) {
   evt.preventDefault();
@@ -95,5 +70,4 @@ function onOpenModal(product) {
 `
   );
   instance.show();
-  console.log('повинна відкритись модалка');
 }
