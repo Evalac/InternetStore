@@ -37,7 +37,7 @@ import { createMarkup } from './helpers/createMarkup';
 
 const search = document.querySelector('.js-search');
 const markupInstrument = createMarkup(instruments);
-const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
+const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? []; // оператор нульового поеднання для того щоб після перезавантаження сторінки не пропадали данні з локального сховища при додаванні нового обекту
 const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 
 const cartEl = document.querySelector('.js-list');
