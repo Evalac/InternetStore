@@ -17,8 +17,7 @@ cartEl.addEventListener('click', onclick);
 const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? []; // оператор нульового поеднання для того щоб після перезавантаження сторінки не пропадали данні з локального сховища при додаванні нового обекту
 const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 
-const markupInstrument = createMarkup(instruments);
-cartEl.innerHTML = markupInstrument;
+createMarkup(instruments, cartEl);
 
 function onclick(evt) {
   evt.preventDefault();
