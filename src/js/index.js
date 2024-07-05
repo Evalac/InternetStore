@@ -3,12 +3,11 @@
 // Офрмити нормально стилями
 // зpзробити щоб працював gitPages
 
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basicLightbox.min.css';
-
 import { instruments } from './helpers/instruments';
 import { common } from './common';
 import { createMarkup } from './helpers/createMarkup';
+import { onOpenModal } from './helpers/openModal';
+import { findProduct } from './helpers/findProduct';
 
 const searchEl = document.querySelector('.js-search');
 const cartEl = document.querySelector('.js-list');
@@ -22,8 +21,8 @@ createMarkup(instruments, cartEl);
 function onclick(evt) {
   evt.preventDefault();
   if (evt.target.classList.contains('js-info')) {
-    const id = evt.target.closest('.cart--Iteam').dataset.id; // візьми з нашого елемента по якому ми клікнули першого батька з классом '.cart--Iteam' і з його властивусті дай дата атребут
-    const product = findProduct(Number(id));
+    const id = evt.target.closest('.cart--Iteam').dataset.id;
+    const product = findProduct(Number(id), instruments);
 
     onOpenModal(product);
   }
@@ -51,22 +50,4 @@ function onclick(evt) {
     favoriteArr.push(product);
     localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favoriteArr));
   }
-}
-
-function findProduct(productId) {
-  return instruments.find(({ id }) => id === productId);
-}
-
-function onOpenModal(product) {
-  const instance = basicLightbox.create(
-    `  <div class="modal">
-      <img src="${product.img}" alt="${product.name}" width="150px" />
-      <h2>${product.name}</h2>
-      <h3>${product.price}$</h3>
-      <p>${product.description}</p>
-      <div><button class="js-favorite">Add to Favorite</button><button class="js-basket">Add to Basket</button></div>
-    </div>
-`
-  );
-  instance.show();
 }
