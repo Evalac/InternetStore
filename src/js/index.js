@@ -2,6 +2,7 @@
 // Доробити корзину щоб була кількість і додавалсь в коризину кількість а не дубювались обекти
 // Офрмити нормально стилями
 // зpзробити щоб працював gitPages
+// Дороботи checkout  це корзина
 
 import { instruments } from './helpers/instruments';
 import { common } from './common';

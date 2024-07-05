@@ -10,9 +10,22 @@ function onOpenModal(product) {
       <p>${product.description}</p>
       <div><button class="js-favorite">Add to Favorite</button><button class="js-basket">Add to Basket</button></div>
     </div>
-`
+`,
+    {
+      onShow: instance => {
+        document.addEventListener('keydown', onCloseModal);
+      },
+
+      onClose: instance => {},
+    }
   );
   instance.show();
+  function onCloseModal(evt) {
+    if (evt.code === `Escape`) {
+      console.log(evt);
+      instance.close();
+    }
+  }
 }
 
 export { onOpenModal };
