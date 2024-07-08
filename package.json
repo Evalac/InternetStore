@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Evalac/InternetStore"
+    "url": "https://github.com/Evalac/InternetStore"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
