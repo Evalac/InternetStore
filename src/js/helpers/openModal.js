@@ -1,5 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { onCloseModal } from './closeModal';
 
 function onOpenModal(product) {
   const instance = basicLightbox.create(
@@ -12,20 +13,18 @@ function onOpenModal(product) {
     </div>
 `,
     {
-      onShow: instance => {
-        document.addEventListener('keydown', onCloseModal);
+      handler: null,
+      onShow(instance) {
+        this.handler = onCloseModal.bind(instance);
+        document.addEventListener('keydown', this.handler);
       },
 
-      onClose: instance => {},
+      onClose() {
+        document.removeEventListener('keydown', this.handler);
+      },
     }
   );
   instance.show();
-  function onCloseModal(evt) {
-    if (evt.code === `Escape`) {
-      console.log(evt);
-      instance.close();
-    }
-  }
 }
 
 export { onOpenModal };
