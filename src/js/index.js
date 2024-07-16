@@ -29,7 +29,8 @@ function onclick(evt) {
   }
   if (evt.target.classList.contains('js-basket')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
-    const product = findProduct(Number(id));
+
+    const product = findProduct(Number(id), instruments);
 
     const inStorage = basketArr.some(({ id }) => id === product.id);
     if (inStorage) {
@@ -41,7 +42,7 @@ function onclick(evt) {
   }
   if (evt.target.classList.contains('js-favorite')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
-    const product = findProduct(Number(id));
+    const product = findProduct(Number(id), instruments);
 
     const inStorage = favoriteArr.some(({ id }) => id === product.id);
     if (inStorage) {
