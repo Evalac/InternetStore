@@ -8,7 +8,11 @@ const listEl = document.querySelector('.js-list');
 const refBasketEl = {
   total: document.querySelector('.total-js'),
   quantity: document.querySelector('.quantity-js'),
+  increase: document.querySelector('#increase'),
+  decrease: document.querySelector('#decrease'),
 };
+console.log(refBasketEl.increase);
+console.log(refBasketEl.decrease);
 
 const basket = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 basket.flatMap(({ qty, total }) => {
