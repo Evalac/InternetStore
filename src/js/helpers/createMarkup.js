@@ -25,7 +25,7 @@ function createMarkup(instruments, cartEl) {
     </li> `;
   }
 
-  cartEl.innerHTML = markup;
+  cartEl.insertAdjacentHTML('afterbegin', markup);
 }
 
 export { createMarkup };

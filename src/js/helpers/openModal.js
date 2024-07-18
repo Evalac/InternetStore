@@ -9,8 +9,7 @@ function onOpenModal(product) {
       <h2>${product.name}</h2>
       <h3>${product.price}$</h3>
       <p>${product.description}</p>
-      <div><button class="js-favorite">Add to Favorite</button><button class="js-basket">Add to Basket</button></div>
-    </div>
+     
 `,
     {
       handler: null,
