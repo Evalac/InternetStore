@@ -32,13 +32,15 @@ function onclick(evt) {
 
     const product = findProduct(Number(id), instruments);
 
-    const inStorage = basketArr.some(({ id }) => id === product.id);
-    if (inStorage) {
-      return;
+    const inStorage = basketArr.find(({ id }) => id === product.id);
+    if (!inStorage) {
+      product.qty = 1;
+      basketArr.push(product);
+      localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
+    } else {
+      inStorage.qty += 1;
+      localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
     }
-
-    basketArr.push(product);
-    localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
   }
   if (evt.target.classList.contains('js-favorite')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
