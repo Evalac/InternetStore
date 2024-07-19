@@ -40,7 +40,9 @@ function onclick(evt) {
       localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
     } else {
       inStorage.qty += 1;
-      inStorage.total = inStorage.qty * inStorage.price;
+      inStorage.total = parseFloat(
+        (inStorage.qty * inStorage.price).toFixed(2)
+      );
       localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
     }
   }
