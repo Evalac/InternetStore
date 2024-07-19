@@ -12,24 +12,35 @@ const refBasketEl = {
   increase: document.querySelector('#increase'),
   decrease: document.querySelector('#decrease'),
 };
-console.log(refBasketEl.increase);
-console.log(refBasketEl.decrease);
 
 const basket = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
-
-createMarkup(basket, listEl, basket);
-// createMarkupForBasket(basket, listEl);
-
-listEl.addEventListener('click', onclick);
 
 function onclick(evt) {
   evt.preventDefault();
   if (evt.target.classList.contains('js-info')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
     const product = findProduct(Number(id), instruments);
-    console.log(product);
 
     onOpenModal(product);
+    return;
+  }
+
+  if (evt.target.id === 'increase') {
+    console.log(`+`);
+
+    basket.map(basket => {
+      basket.qty += 1;
+    });
+  } else if (evt.target.id === 'decrease') {
+    basket.map(basket => {
+      basket.qty -= 1;
+    });
   }
 }
+
+console.log(basket);
+createMarkup(basket, listEl, basket);
+
+listEl.addEventListener('click', onclick);
+
 // додати якийсь хрестик щоб видалити з обраного

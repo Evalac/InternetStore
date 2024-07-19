@@ -29,10 +29,9 @@ function onclick(evt) {
   }
   if (evt.target.classList.contains('js-basket')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
-
     const product = findProduct(Number(id), instruments);
-
     const inStorage = basketArr.find(({ id }) => id === product.id);
+
     if (!inStorage) {
       product.qty = 1;
       product.total = product.price;
@@ -46,6 +45,7 @@ function onclick(evt) {
       localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
     }
   }
+
   if (evt.target.classList.contains('js-favorite')) {
     const id = evt.target.closest('.cart--Iteam').dataset.id;
     const product = findProduct(Number(id), instruments);
